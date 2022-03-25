@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
+import CardItem from "../Component/CardItem";
+
 import { fetchCaseStudies, fetchCategories } from "../PlankAPI/plankAPI";
 
 class WorkPage extends PureComponent {
@@ -25,9 +27,20 @@ class WorkPage extends PureComponent {
       <PageWrapper>
         <Title>WORK</Title>
 
-        {/* {this.state.categories.map((val) => {
-          return <div>{val.title}</div>;
-        })} */}
+        <CardWrapper>
+          {this.state.caseStudies.map((val) => {
+            return (
+              <CardItem
+                id={val.id}
+                categories={val.categories}
+                excerpt={val.excerpt}
+                link={val.link}
+                thumbnail={val.thumbnail}
+                title={val.title}
+              />
+            );
+          })}
+        </CardWrapper>
       </PageWrapper>
     );
   }
@@ -41,4 +54,9 @@ const PageWrapper = styled.div`
 
 const Title = styled.div`
   font-size: 2em;
+`;
+
+const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
