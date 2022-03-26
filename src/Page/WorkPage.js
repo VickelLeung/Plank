@@ -46,49 +46,49 @@ class WorkPage extends PureComponent {
   render() {
     return (
       <PageWrapper>
-        <HeaderWrapper>
-          <Title>WORK</Title>
-          <Icon name={"asset2"} />
-        </HeaderWrapper>
-
-        <CategoriesWrapper>
-          <CategoriesItem
-            onClickFilter={this.updateFilterAll}
-            slug={"All"}
-            title={"All"}
-            selectedCategory={this.state.selectedCategory}
-          />
-          {this.state.categories.map((val, index) => {
-            return (
-              <CategoriesItem
-                key={index}
-                onClickFilter={() => this.updateFilter(val.title)}
-                slug={val.slug}
-                title={val.title}
-                selectedCategory={this.state.selectedCategory}
-              />
-            );
-          })}
-        </CategoriesWrapper>
-        <Underline />
-        <CardWrapper>
-          {this.state.selectedCaseStudies.map((val) => {
-            return (
-              <CardItem
-                id={val.id}
-                categories={val.categories}
-                excerpt={val.excerpt}
-                link={val.link}
-                thumbnail={val.thumbnail}
-                title={val.title}
-              />
-            );
-          })}
-        </CardWrapper>
-
+        <IconDotted name={"asset2"} />
+        <MainWrapper>
+          <HeaderWrapper>
+            <Title>WORK</Title>
+          </HeaderWrapper>
+          <CategoriesWrapper>
+            <CategoriesItem
+              onClickFilter={this.updateFilterAll}
+              slug={"All"}
+              title={"All"}
+              selectedCategory={this.state.selectedCategory}
+            />
+            {this.state.categories.map((val, index) => {
+              return (
+                <CategoriesItem
+                  key={index}
+                  onClickFilter={() => this.updateFilter(val.title)}
+                  slug={val.slug}
+                  title={val.title}
+                  selectedCategory={this.state.selectedCategory}
+                />
+              );
+            })}
+          </CategoriesWrapper>
+          <Underline />
+          <CardWrapper>
+            {this.state.selectedCaseStudies.map((val) => {
+              return (
+                <CardItem
+                  id={val.id}
+                  categories={val.categories}
+                  excerpt={val.excerpt}
+                  link={val.link}
+                  thumbnail={val.thumbnail}
+                  title={val.title}
+                />
+              );
+            })}
+          </CardWrapper>
+        </MainWrapper>{" "}
         <SvgWrapper>
-          <IconComponent name={"asset3"} />
-          <IconComponent name={"asset1"} />
+          <IconAsset3 name={"asset3"} />
+          <IconAsset1 name={"asset1"} />
         </SvgWrapper>
       </PageWrapper>
     );
@@ -99,10 +99,27 @@ export default WorkPage;
 
 const PageWrapper = styled.div`
   background: #181818;
-  height: 100%;
 `;
 
-const Icon = styled(IconComponent)``;
+const MainWrapper = styled.div`
+  padding: 0 5%;
+`;
+
+const IconDotted = styled(IconComponent)`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+const IconAsset3 = styled(IconComponent)`
+  background-position: right bottom;
+`;
+
+const IconAsset1 = styled(IconComponent)`
+  background-position: left bottom;
+  max-height: 5%;
+  max-width: 5%;
+`;
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -111,6 +128,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const Title = styled.div`
+  font-weight: bold;
   font-size: 4em;
   color: white;
   padding: 3% 0;
@@ -127,11 +145,12 @@ const CategoriesWrapper = styled.div`
 `;
 
 const Underline = styled.div`
-  margin: 1% 0;
+  margin: 2% 0 4% 0;
   border-bottom: 2px solid white;
 `;
 
 const SvgWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
