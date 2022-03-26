@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+import PlaceHolderImg from "../Assets/placeholder-image.jpg";
+
 const CardItem = (props) => {
   return (
     <CardItemWrapper>
       <ImageWrapper>
-        <img src={props.thumbnail} />
+        {props.thumbnail ? (
+          <img src={props.thumbnail} />
+        ) : (
+          <img src={PlaceHolderImg} alt="Loading..." />
+        )}
       </ImageWrapper>
       <ContentWrapper>
         <Categories>{props.categories[0].title}</Categories>
