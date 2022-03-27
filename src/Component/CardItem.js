@@ -20,7 +20,7 @@ const CardItem = (props) => {
         <Title>{props.title}</Title>
         <Description>{props.excerpt}</Description>
         <Link href={props.link}>
-          View Case Study
+          VIEW CASE STUDY
           <IconContainer>
             <IconComponent name={"arrowIcon"} />
           </IconContainer>
@@ -34,13 +34,17 @@ export default CardItem;
 
 const CardItemWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
   flex: 45%;
   color: white;
   margin: 4% 0;
+  flex-grow: 0;
+  flex-shrink: 0;
 `;
 
 const ImageWrapper = styled.div`
   display: flex;
+  margin-right: 5%;
 `;
 
 const Image = styled.img`
@@ -52,7 +56,6 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 50%;
-  margin: 0 5%;
 `;
 
 const Categories = styled.div``;
@@ -80,37 +83,9 @@ const Link = styled.a`
   &hover: {
     cursor: pointer;
   }
-
-  &:before {
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: $hover;
-    transform: translateX(-100%);
-  }
   &:after {
-    content: attr(data-content);
-    left: 0;
-    top: 0;
-    width: 0;
-    margin: 12px;
-    color: $hover;
-    white-space: nowrap;
-    overflow: hidden;
-    transition: width 0.5s ease;
-  }
-  > span {
-    display: block;
-    margin: 2px;
-    padding: 10px;
-    background: $bg;
-  }
-  &:hover:before {
-    transform: translateX(0);
-  }
-  &:hover:after {
-    width: calc(100% - 24px);
+    left: 120%;
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
   }
 `;
 

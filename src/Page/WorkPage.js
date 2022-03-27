@@ -70,7 +70,6 @@ class WorkPage extends PureComponent {
               );
             })}
           </CategoriesWrapper>
-          <Underline />
           <CardWrapper>
             {this.state.selectedCaseStudies.map((val) => {
               return (
@@ -136,7 +135,11 @@ const Title = styled.div`
 
 const CardWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2% 0 4% 0;
+  border-top: 2px solid white;
 `;
 
 const CategoriesWrapper = styled.div`
@@ -145,8 +148,7 @@ const CategoriesWrapper = styled.div`
 `;
 
 const Underline = styled.div`
-  margin: 2% 0 4% 0;
-  border-bottom: 2px solid white;
+  border-top: 2px solid white;
 `;
 
 const SvgWrapper = styled.div`
