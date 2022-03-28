@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import PlaceHolderImg from "../Assets/placeholder-image.jpg";
 import IconComponent from "../Component/icon";
@@ -40,11 +40,31 @@ const CardItemWrapper = styled.div`
   margin: 4% 0;
   flex-grow: 0;
   flex-shrink: 0;
+
+  @media only screen and (max-width: 600px) {
+    padding: 2% 0;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    margin: 10% 0;
+  }
 `;
 
 const ImageWrapper = styled.div`
   display: flex;
   margin-right: 5%;
+  min-width: 15vw;
+  max-width: 15vw;
+
+  @media only screen and (max-width: 700px) {
+    min-width: 30vw;
+    max-width: 30vw;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    min-width: 25vw;
+    max-width: 25vw;
+  }
 `;
 
 const Image = styled.img`
@@ -64,6 +84,10 @@ const Title = styled.div`
   font-size: 3em;
   margin: 4% 0;
   font-weight: bold;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 2em;
+  }
 `;
 
 const Description = styled.div``;
@@ -80,12 +104,16 @@ const Link = styled.a`
   align-self: flex-end;
   margin-top: auto;
 
-  &hover: {
+  transition: transform 250ms, opacity 400ms;
+
+  &:hover {
     cursor: pointer;
+    transform: scale(1.2);
   }
-  &:after {
-    left: 120%;
-    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+
+  @media only screen and (max-width: 500px) {
+    width: 95%;
+    margin: 4% 0;
   }
 `;
 

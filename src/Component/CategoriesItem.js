@@ -27,14 +27,14 @@ const CategoriesWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex: 50%;
-  font-size: 1.1em;
+  font-size: 1em;
   padding-right: 2%;
   align-self: center;
 `;
 
 const Title = styled.div`
   color: white;
-  transition: 0.5s all 0.5s;
+  transition: 0.5s all;
   &:hover {
     color: black;
     cursor: pointer;

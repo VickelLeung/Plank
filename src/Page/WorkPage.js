@@ -84,7 +84,7 @@ class WorkPage extends PureComponent {
               );
             })}
           </CardWrapper>
-        </MainWrapper>{" "}
+        </MainWrapper>
         <SvgWrapper>
           <IconAsset3 name={"asset3"} />
           <IconAsset1 name={"asset1"} />
@@ -98,6 +98,9 @@ export default WorkPage;
 
 const PageWrapper = styled.div`
   background: #181818;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 const MainWrapper = styled.div`
@@ -108,16 +111,32 @@ const IconDotted = styled(IconComponent)`
   position: absolute;
   top: 0;
   right: 0;
+
+  @media only screen and (max-width: 500px) {
+    height: 4vh;
+    top: 0;
+    right: 0;
+  }
 `;
 
 const IconAsset3 = styled(IconComponent)`
   background-position: right bottom;
+
+  @media only screen and (max-width: 500px) {
+    max-height: 40%;
+    max-width: 40%;
+  }
 `;
 
 const IconAsset1 = styled(IconComponent)`
   background-position: left bottom;
   max-height: 5%;
   max-width: 5%;
+
+  @media only screen and (max-width: 500px) {
+    max-height: 20%;
+    max-width: 20%;
+  }
 `;
 
 const HeaderWrapper = styled.div`
@@ -131,6 +150,10 @@ const Title = styled.div`
   font-size: 4em;
   color: white;
   padding: 3% 0;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 2em;
+  }
 `;
 
 const CardWrapper = styled.div`
@@ -140,19 +163,26 @@ const CardWrapper = styled.div`
   justify-content: space-between;
   margin: 2% 0 4% 0;
   border-top: 2px solid white;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
 
 const CategoriesWrapper = styled.div`
   display: flex;
   flex-direction: row;
-`;
 
-const Underline = styled.div`
-  border-top: 2px solid white;
+  @media only screen and (max-width: 480px) {
+    min-width: 38vw;
+    max-width: 30vw;
+  }
 `;
 
 const SvgWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  margin-top: auto;
 `;
