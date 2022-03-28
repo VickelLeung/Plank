@@ -1,3 +1,27 @@
+# About
+This project is used as an assessment for Plank.
+
+# Approach
+
+My first approach to this assessment is to divide and conquer, meaning each component is separate into smaller chunks. Before I begin coding, I make sure I know what kind of components are needed and what goes inside the component. For example, I made a CardItem and CategoriesItem which both contain elements within that can be used to fill in the data given.
+
+I also made a container called WorkPage which contains all information that was needed to display webpage. Afterward, I started working with the API and retrieving the information to populate the CardItem & CategoriesItem. The last thing I have worked on being on the CSS to style the website and make it web/mobile compatible.
+
+# Issues tracking
+
+Trello was used during this assesment to keep track of all issues and keep track of what is left to do. 
+
+https://trello.com/b/x0jWuwPI/plank-assessment
+
+# Website is live!
+Netlify was used to deploy the most recent build for the assessment
+
+https://plank-assessment.netlify.app/
+
+
+# Information on how to get the app started below
+=======================================================================================================================================================================
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
