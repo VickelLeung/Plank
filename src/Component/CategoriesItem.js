@@ -27,24 +27,39 @@ const CategoriesWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex: 50%;
+  font-size: 1em;
+  padding-right: 2%;
+  align-self: center;
 `;
 
 const Title = styled.div`
   color: white;
-  transition: 0.5s all 0.5s;
+  transition: 0.5s all;
   &:hover {
     color: black;
-    background-color: white;
     cursor: pointer;
+  }
+`;
+
+const SelectedBorder = styled.div`
+  border: 1px solid white;
+  padding: 2% 6%;
+
+  &:hover {
+    background-color: white;
     -webkit-transition: background-color 1000ms linear;
     -ms-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear;
   }
 `;
 
-const SelectedBorder = styled.div`
-  border: 1px solid white;
-  padding: 1% 2%;
-`;
+const NonSelectedBorder = styled.div`
+  padding: 2% 6%;
 
-const NonSelectedBorder = styled.div``;
+  &:hover {
+    background-color: white;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+  }
+`;

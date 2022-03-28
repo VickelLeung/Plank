@@ -46,49 +46,48 @@ class WorkPage extends PureComponent {
   render() {
     return (
       <PageWrapper>
-        <HeaderWrapper>
-          <Title>WORK</Title>
-          <Icon name={"asset2"} />
-        </HeaderWrapper>
-
-        <CategoriesWrapper>
-          <CategoriesItem
-            onClickFilter={this.updateFilterAll}
-            slug={"All"}
-            title={"All"}
-            selectedCategory={this.state.selectedCategory}
-          />
-          {this.state.categories.map((val, index) => {
-            return (
-              <CategoriesItem
-                key={index}
-                onClickFilter={() => this.updateFilter(val.title)}
-                slug={val.slug}
-                title={val.title}
-                selectedCategory={this.state.selectedCategory}
-              />
-            );
-          })}
-        </CategoriesWrapper>
-        <Underline />
-        <CardWrapper>
-          {this.state.selectedCaseStudies.map((val) => {
-            return (
-              <CardItem
-                id={val.id}
-                categories={val.categories}
-                excerpt={val.excerpt}
-                link={val.link}
-                thumbnail={val.thumbnail}
-                title={val.title}
-              />
-            );
-          })}
-        </CardWrapper>
-
+        <IconDotted name={"asset2"} />
+        <MainWrapper>
+          <HeaderWrapper>
+            <Title>WORK</Title>
+          </HeaderWrapper>
+          <CategoriesWrapper>
+            <CategoriesItem
+              onClickFilter={this.updateFilterAll}
+              slug={"All"}
+              title={"All"}
+              selectedCategory={this.state.selectedCategory}
+            />
+            {this.state.categories.map((val, index) => {
+              return (
+                <CategoriesItem
+                  key={index}
+                  onClickFilter={() => this.updateFilter(val.title)}
+                  slug={val.slug}
+                  title={val.title}
+                  selectedCategory={this.state.selectedCategory}
+                />
+              );
+            })}
+          </CategoriesWrapper>
+          <CardWrapper>
+            {this.state.selectedCaseStudies.map((val) => {
+              return (
+                <CardItem
+                  id={val.id}
+                  categories={val.categories}
+                  excerpt={val.excerpt}
+                  link={val.link}
+                  thumbnail={val.thumbnail}
+                  title={val.title}
+                />
+              );
+            })}
+          </CardWrapper>
+        </MainWrapper>
         <SvgWrapper>
-          <IconComponent name={"asset3"} />
-          <IconComponent name={"asset1"} />
+          <IconAsset3 name={"asset3"} />
+          <IconAsset1 name={"asset1"} />
         </SvgWrapper>
       </PageWrapper>
     );
@@ -99,10 +98,46 @@ export default WorkPage;
 
 const PageWrapper = styled.div`
   background: #181818;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
-const Icon = styled(IconComponent)``;
+const MainWrapper = styled.div`
+  padding: 0 5%;
+`;
+
+const IconDotted = styled(IconComponent)`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  @media only screen and (max-width: 500px) {
+    height: 4vh;
+    top: 0;
+    right: 0;
+  }
+`;
+
+const IconAsset3 = styled(IconComponent)`
+  background-position: right bottom;
+
+  @media only screen and (max-width: 500px) {
+    max-height: 40%;
+    max-width: 40%;
+  }
+`;
+
+const IconAsset1 = styled(IconComponent)`
+  background-position: left bottom;
+  max-height: 5%;
+  max-width: 5%;
+
+  @media only screen and (max-width: 500px) {
+    max-height: 20%;
+    max-width: 20%;
+  }
+`;
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -111,27 +146,43 @@ const HeaderWrapper = styled.div`
 `;
 
 const Title = styled.div`
+  font-weight: bold;
   font-size: 4em;
   color: white;
   padding: 3% 0;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 2em;
+  }
 `;
 
 const CardWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2% 0 4% 0;
+  border-top: 2px solid white;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
 
 const CategoriesWrapper = styled.div`
   display: flex;
   flex-direction: row;
-`;
 
-const Underline = styled.div`
-  margin: 1% 0;
-  border-bottom: 2px solid white;
+  @media only screen and (max-width: 480px) {
+    min-width: 38vw;
+    max-width: 30vw;
+  }
 `;
 
 const SvgWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+
+  margin-top: auto;
 `;
